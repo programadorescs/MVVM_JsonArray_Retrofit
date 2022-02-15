@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import pe.pcs.mvvm_jsonarray_retrofit.data.UsuarioRepository
+import pe.pcs.mvvm_jsonarray_retrofit.data.repository.UsuarioRepository
 import pe.pcs.mvvm_jsonarray_retrofit.data.model.UsuarioModel
 
 class HomeViewModel : ViewModel() {

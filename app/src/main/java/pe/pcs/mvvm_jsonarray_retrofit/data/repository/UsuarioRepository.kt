@@ -1,4 +1,4 @@
-package pe.pcs.mvvm_jsonarray_retrofit.data
+package pe.pcs.mvvm_jsonarray_retrofit.data.repository
 
 import pe.pcs.mvvm_jsonarray_retrofit.data.model.UsuarioModel
 import pe.pcs.mvvm_jsonarray_retrofit.data.model.UsuarioResponse

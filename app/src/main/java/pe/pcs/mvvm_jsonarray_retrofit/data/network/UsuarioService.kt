@@ -12,7 +12,7 @@ class UsuarioService {
     suspend fun getUsuarios(): List<UsuarioModel> {
 
         return withContext(Dispatchers.IO) {
-            val response = retrofit.create(UsuarioApiClient::class.java).getTodosUsuarios()
+            val response = retrofit.create(UsuarioApiService::class.java).getTodosUsuarios()
             response.body() ?: emptyList()
         }
 
