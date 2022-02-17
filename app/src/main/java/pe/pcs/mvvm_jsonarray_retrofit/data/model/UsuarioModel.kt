@@ -10,5 +10,5 @@ data class UsuarioModel(
     @SerializedName("address") var address: AddresModel,
     @SerializedName("phone") var phone : String,
     @SerializedName("website") var website : String,
-    @SerializedName("Company") var Company: CompanyModel
+    @SerializedName("company") var company: CompanyModel
 )

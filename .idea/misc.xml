@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Proyectos Android/MVVM_JsonArray_Retrofit/app/src/main/res/layout/fragment_detalle_usuario.xml" value="0.20416666666666666" />
         <entry key="..\:/Proyectos Android/MVVM_JsonArray_Retrofit/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Proyectos Android/MVVM_JsonArray_Retrofit/app/src/main/res/layout/item_usuario.xml" value="0.20416666666666666" />
       </map>

@@ -4,14 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import pe.pcs.mvvm_jsonarray_retrofit.R
 import pe.pcs.mvvm_jsonarray_retrofit.data.model.UsuarioModel
 import pe.pcs.mvvm_jsonarray_retrofit.databinding.FragmentHomeBinding
 import pe.pcs.mvvm_jsonarray_retrofit.ui.adapter.UsuarioAdapter
@@ -21,6 +22,9 @@ import pe.pcs.mvvm_jsonarray_retrofit.ui.viewmodel.HomeViewModel
 class HomeFragment : Fragment(), ClickItemListener {
 
     private var _binding: FragmentHomeBinding? = null
+    lateinit var viewModel: HomeViewModel
+    // inicializa el viewmodel a nivel de activity para ser compartido en multiples fragment o activity
+    //private val viewModel : HomeViewModel by activityViewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -31,8 +35,11 @@ class HomeFragment : Fragment(), ClickItemListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val viewModel =
-            ViewModelProvider(this)[HomeViewModel::class.java]
+
+        // requireActivity() es usado para compartir el viewmodel en multiples fragment o activity
+        viewModel = ViewModelProvider(requireActivity())[HomeViewModel::class.java]
+        // this usado para crear una nueva istancia del viewmodel por fragment o activity
+        //viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -65,6 +72,8 @@ class HomeFragment : Fragment(), ClickItemListener {
     }
 
     override fun itemClick(entidad: UsuarioModel) {
-        Toast.makeText(requireContext(), entidad.address.city.toString(), Toast.LENGTH_LONG).show()
+        viewModel.setItemUsuario(entidad)
+
+        Navigation.findNavController(requireView()).navigate(R.id.action_nav_home_to_detalleUsuarioFragment)
     }
 }

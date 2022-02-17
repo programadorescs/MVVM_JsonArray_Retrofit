@@ -9,7 +9,16 @@
         android:id="@+id/nav_home"
         android:name="pe.pcs.mvvm_jsonarray_retrofit.ui.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_detalleUsuarioFragment"
+            app:destination="@id/detalleUsuarioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleUsuarioFragment"
+        android:name="pe.pcs.mvvm_jsonarray_retrofit.ui.DetalleUsuarioFragment"
+        android:label="@string/detalle"
+        tools:layout="@layout/fragment_detalle_usuario" />
 
 
 </navigation>

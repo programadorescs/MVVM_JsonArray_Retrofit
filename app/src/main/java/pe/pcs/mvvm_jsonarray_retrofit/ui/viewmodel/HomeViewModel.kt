@@ -11,8 +11,11 @@ import pe.pcs.mvvm_jsonarray_retrofit.data.model.UsuarioModel
 class HomeViewModel : ViewModel() {
 
     val listaUsuarioModel = MutableLiveData<List<UsuarioModel>>()
+    private var _itemUsuario = MutableLiveData<UsuarioModel>()
+    val itemUsuario: LiveData<UsuarioModel> = _itemUsuario
     private val _progressBar = MutableLiveData<Boolean>()
     var progressBar: LiveData<Boolean> = _progressBar
+
 
     // Metodo que llenara la lista (listaUsuarioModel)
     // con los datos que trae el metodo getWebService
@@ -22,6 +25,11 @@ class HomeViewModel : ViewModel() {
         viewModelScope.launch {
             listaUsuarioModel.value = UsuarioRepository().getTodosLosUsuarios()
         }
+    }
+
+    // Para el item seleccionado
+    fun setItemUsuario(item: UsuarioModel) {
+        _itemUsuario.value = item
     }
 
 }
