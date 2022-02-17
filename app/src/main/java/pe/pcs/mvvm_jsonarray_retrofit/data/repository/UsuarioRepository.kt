@@ -12,9 +12,6 @@ class UsuarioRepository {
         // Aqui (api.getUsuarios()) esta la lista de Quotes [{},{},...]
         val response = api.getUsuarios()
 
-        // Pasamos la lista al proveedor UsuarioResponse.usuarios que servira como base de datos local ;)
-        //UsuarioResponse.usuarios = response
-
         // Retorna la lista
         return response
     }
